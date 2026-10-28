@@ -18,6 +18,8 @@ public sealed class Material
 
     public string? Descricao { get; private set; }
 
+    public string? Imagem { get; private set; }
+
     public CategoriaMaterial Categoria { get; private set; }
 
     public EstadoConservacao EstadoConservacao { get; private set; }
@@ -39,12 +41,14 @@ public sealed class Material
         string? descricao,
         CategoriaMaterial categoria,
         EstadoConservacao estadoConservacao,
-        int quantidade) => new()
+        int quantidade,
+        string? imagem = null) => new()
     {
         Id = Guid.NewGuid(),
         DoadorId = doadorId,
         Nome = nome.Trim(),
         Descricao = string.IsNullOrWhiteSpace(descricao) ? null : descricao.Trim(),
+        Imagem = imagem,
         Categoria = categoria,
         EstadoConservacao = estadoConservacao,
         Quantidade = quantidade,

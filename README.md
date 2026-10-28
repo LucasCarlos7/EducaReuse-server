@@ -1,6 +1,6 @@
 # EducaReuse — API
 
-API da plataforma EducaReuse (ASP.NET Core 10, Minimal APIs, EF Core + PostgreSQL, JWT).
+API da plataforma EducaReuse (ASP.NET Core 8, Minimal APIs, EF Core + PostgreSQL, JWT).
 
 ## Primeira execução
 

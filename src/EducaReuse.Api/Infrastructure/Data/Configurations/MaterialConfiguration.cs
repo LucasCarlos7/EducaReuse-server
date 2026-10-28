@@ -15,6 +15,7 @@ public sealed class MaterialConfiguration : IEntityTypeConfiguration<Material>
 
         builder.Property(m => m.Nome).HasMaxLength(120).IsRequired();
         builder.Property(m => m.Descricao).HasMaxLength(500);
+        builder.Property(m => m.Imagem).HasColumnType("text");
         builder.Property(m => m.Categoria).HasConversion<string>().HasMaxLength(30);
         builder.Property(m => m.EstadoConservacao).HasConversion<string>().HasMaxLength(20);
         builder.Property(m => m.Status).HasConversion<string>().HasMaxLength(20);

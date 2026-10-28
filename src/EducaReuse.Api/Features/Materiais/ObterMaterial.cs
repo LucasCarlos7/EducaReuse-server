@@ -25,6 +25,7 @@ public static class ObterMaterial
             material.Id,
             material.Nome,
             material.Descricao,
+            material.Imagem,
             material.Categoria,
             material.EstadoConservacao,
             material.Quantidade,

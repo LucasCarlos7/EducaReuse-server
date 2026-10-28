@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>EducaReuse.Api</RootNamespace>
+    <UserSecretsId>475930fe-0b5f-4a90-b641-e3031d5aee44</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

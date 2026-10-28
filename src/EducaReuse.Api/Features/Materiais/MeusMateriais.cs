@@ -24,6 +24,7 @@ public static class MeusMateriais
                 m.Id,
                 m.Nome,
                 m.Descricao,
+                m.Imagem,
                 m.Categoria,
                 m.EstadoConservacao,
                 m.Quantidade,
