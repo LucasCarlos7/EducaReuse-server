@@ -41,7 +41,7 @@ public sealed class Material
         EstadoConservacao estadoConservacao,
         int quantidade) => new()
     {
-        Id = Guid.CreateVersion7(),
+        Id = Guid.NewGuid(),
         DoadorId = doadorId,
         Nome = nome.Trim(),
         Descricao = string.IsNullOrWhiteSpace(descricao) ? null : descricao.Trim(),

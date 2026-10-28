@@ -24,7 +24,7 @@ public sealed class Solicitacao
 
     internal static Solicitacao Criar(Guid materialId, Guid beneficiarioId, string? mensagem) => new()
     {
-        Id = Guid.CreateVersion7(),
+        Id = Guid.NewGuid(),
         MaterialId = materialId,
         BeneficiarioId = beneficiarioId,
         Mensagem = string.IsNullOrWhiteSpace(mensagem) ? null : mensagem.Trim(),

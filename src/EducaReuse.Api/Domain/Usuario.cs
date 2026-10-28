@@ -22,7 +22,7 @@ public sealed class Usuario
 
     public static Usuario Criar(string nome, string email, string? telefone, PerfilUsuario perfil) => new()
     {
-        Id = Guid.CreateVersion7(),
+        Id = Guid.NewGuid(),
         Nome = nome.Trim(),
         Email = NormalizarEmail(email),
         Telefone = string.IsNullOrWhiteSpace(telefone) ? null : telefone.Trim(),
