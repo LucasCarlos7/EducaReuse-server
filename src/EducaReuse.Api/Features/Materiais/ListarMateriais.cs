@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using EducaReuse.Api.Domain;
 using EducaReuse.Api.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -14,10 +15,14 @@ public static class ListarMateriais
 
     private static async Task<IResult> Handle(
         AppDbContext db,
+        ClaimsPrincipal principal,
         CategoriaMaterial? categoria,
         string? busca,
         CancellationToken ct)
     {
+        // Endpoint público: se houver token válido, marca os materiais do próprio usuário.
+        Guid? usuarioId = Guid.TryParse(principal.FindFirst("sub")?.Value, out var id) ? id : null;
+
         var consulta = db.Materiais
             .AsNoTracking()
             .Where(m => m.Status == StatusMaterial.Disponivel);
@@ -49,6 +54,7 @@ public static class ListarMateriais
                 m.Quantidade,
                 m.Status,
                 DoadorNome = m.Doador.Nome,
+                m.DoadorId,
                 m.CriadoEm
             })
             .ToListAsync(ct);
@@ -63,7 +69,8 @@ public static class ListarMateriais
             m.Quantidade,
             m.Status,
             NomeExibicao.PrimeiroNome(m.DoadorNome),
-            m.CriadoEm));
+            m.CriadoEm,
+            m.DoadorId == usuarioId));
 
         return Results.Ok(resposta);
     }

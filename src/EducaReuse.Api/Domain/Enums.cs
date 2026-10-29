@@ -1,11 +1,5 @@
 namespace EducaReuse.Api.Domain;
 
-public enum PerfilUsuario
-{
-    Doador = 1,
-    Beneficiario = 2
-}
-
 public enum CategoriaMaterial
 {
     Caderno = 1,

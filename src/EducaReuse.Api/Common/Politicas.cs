@@ -1,13 +1,6 @@
 using System.Security.Claims;
-using EducaReuse.Api.Domain;
 
 namespace EducaReuse.Api.Common;
-
-public static class Politicas
-{
-    public const string Doador = nameof(PerfilUsuario.Doador);
-    public const string Beneficiario = nameof(PerfilUsuario.Beneficiario);
-}
 
 public static class ClaimsPrincipalExtensions
 {

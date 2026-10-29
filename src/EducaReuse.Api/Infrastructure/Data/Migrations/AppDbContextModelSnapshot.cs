@@ -131,11 +131,6 @@ namespace EducaReuse.Api.Infrastructure.Data.Migrations
                         .HasMaxLength(120)
                         .HasColumnType("character varying(120)");
 
-                    b.Property<string>("Perfil")
-                        .IsRequired()
-                        .HasMaxLength(20)
-                        .HasColumnType("character varying(20)");
-
                     b.Property<string>("SenhaHash")
                         .IsRequired()
                         .HasMaxLength(500)

@@ -34,7 +34,7 @@ public static class CriarMaterial
 
     public static void Map(RouteGroupBuilder grupo) =>
         grupo.MapPost("/", Handle)
-            .RequireAuthorization(Politicas.Doador)
+            .RequireAuthorization()
             .DisableAntiforgery();
 
     private static async Task<IResult> Handle(

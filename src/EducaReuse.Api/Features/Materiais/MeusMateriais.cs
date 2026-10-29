@@ -10,7 +10,7 @@ namespace EducaReuse.Api.Features.Materiais;
 public static class MeusMateriais
 {
     public static void Map(RouteGroupBuilder grupo) =>
-        grupo.MapGet("/meus", Handle).RequireAuthorization(Politicas.Doador);
+        grupo.MapGet("/meus", Handle).RequireAuthorization();
 
     private static async Task<IResult> Handle(ClaimsPrincipal principal, AppDbContext db, CancellationToken ct)
     {

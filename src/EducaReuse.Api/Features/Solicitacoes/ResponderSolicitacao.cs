@@ -14,17 +14,17 @@ public static class ResponderSolicitacao
         grupo.MapPost("/{id:guid}/aceitar",
                 (Guid id, ClaimsPrincipal principal, AppDbContext db, CancellationToken ct) =>
                     Executar(id, principal, db, (material, solicitacaoId) => material.Aceitar(solicitacaoId), ct))
-            .RequireAuthorization(Politicas.Doador);
+            .RequireAuthorization();
 
         grupo.MapPost("/{id:guid}/recusar",
                 (Guid id, ClaimsPrincipal principal, AppDbContext db, CancellationToken ct) =>
                     Executar(id, principal, db, (material, solicitacaoId) => material.Recusar(solicitacaoId), ct))
-            .RequireAuthorization(Politicas.Doador);
+            .RequireAuthorization();
 
         grupo.MapPost("/{id:guid}/entregar",
                 (Guid id, ClaimsPrincipal principal, AppDbContext db, CancellationToken ct) =>
                     Executar(id, principal, db, (material, solicitacaoId) => material.ConfirmarEntrega(solicitacaoId), ct))
-            .RequireAuthorization(Politicas.Doador);
+            .RequireAuthorization();
     }
 
     private static async Task<IResult> Executar(

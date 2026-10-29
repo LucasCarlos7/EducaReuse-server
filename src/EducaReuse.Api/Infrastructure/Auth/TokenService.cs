@@ -25,8 +25,7 @@ public sealed class TokenService(IOptions<JwtOptions> options)
             {
                 [JwtRegisteredClaimNames.Sub] = usuario.Id.ToString(),
                 [JwtRegisteredClaimNames.Email] = usuario.Email,
-                [JwtRegisteredClaimNames.Name] = usuario.Nome,
-                ["role"] = usuario.Perfil.ToString()
+                [JwtRegisteredClaimNames.Name] = usuario.Nome
             }
         };
 

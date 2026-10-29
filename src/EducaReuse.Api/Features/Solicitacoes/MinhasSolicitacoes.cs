@@ -9,7 +9,7 @@ namespace EducaReuse.Api.Features.Solicitacoes;
 public static class MinhasSolicitacoes
 {
     public static void Map(RouteGroupBuilder grupo) =>
-        grupo.MapGet("/minhas", Handle).RequireAuthorization(Politicas.Beneficiario);
+        grupo.MapGet("/minhas", Handle).RequireAuthorization();
 
     private static async Task<IResult> Handle(ClaimsPrincipal principal, AppDbContext db, CancellationToken ct)
     {

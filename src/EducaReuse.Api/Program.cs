@@ -47,14 +47,11 @@ builder.Services
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwt.Key)),
             ValidateLifetime = true,
             ClockSkew = TimeSpan.FromMinutes(1),
-            NameClaimType = "name",
-            RoleClaimType = "role"
+            NameClaimType = "name"
         };
     });
 
-builder.Services.AddAuthorizationBuilder()
-    .AddPolicy(Politicas.Doador, p => p.RequireRole(nameof(PerfilUsuario.Doador)))
-    .AddPolicy(Politicas.Beneficiario, p => p.RequireRole(nameof(PerfilUsuario.Beneficiario)));
+builder.Services.AddAuthorization();
 
 builder.Services.AddSingleton<IPasswordHasher<Usuario>, PasswordHasher<Usuario>>();
 builder.Services.AddSingleton<TokenService>();

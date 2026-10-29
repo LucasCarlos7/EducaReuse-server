@@ -23,7 +23,7 @@ public static class CriarSolicitacao
     public static void Map(RouteGroupBuilder grupoMateriais) =>
         grupoMateriais.MapPost("/{materialId:guid}/solicitacoes", Handle)
             .ComValidacao<Request>()
-            .RequireAuthorization(Politicas.Beneficiario);
+            .RequireAuthorization();
 
     private static async Task<IResult> Handle(
         Guid materialId,

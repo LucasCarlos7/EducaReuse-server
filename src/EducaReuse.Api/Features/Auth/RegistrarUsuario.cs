@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EducaReuse.Api.Features.Auth;
 
-// RF01 — Cadastro de usuário (doador ou beneficiário).
+// RF01 — Cadastro de usuário. A mesma conta pode doar e solicitar materiais.
 public static class RegistrarUsuario
 {
-    public sealed record Request(string Nome, string Email, string Senha, string? Telefone, PerfilUsuario Perfil);
+    public sealed record Request(string Nome, string Email, string Senha, string? Telefone);
 
     public sealed class Validator : AbstractValidator<Request>
     {
@@ -25,7 +25,6 @@ public static class RegistrarUsuario
                 .MinimumLength(8).WithMessage("A senha deve ter pelo menos 8 caracteres.")
                 .MaximumLength(100);
             RuleFor(r => r.Telefone).MaximumLength(20);
-            RuleFor(r => r.Perfil).IsInEnum().WithMessage("Escolha um perfil válido.");
         }
     }
 
@@ -48,7 +47,7 @@ public static class RegistrarUsuario
             return Erros.Usuario.EmailEmUso.ToProblem();
         }
 
-        var usuario = Usuario.Criar(request.Nome, request.Email, request.Telefone, request.Perfil);
+        var usuario = Usuario.Criar(request.Nome, request.Email, request.Telefone);
         usuario.DefinirSenhaHash(hasher.HashPassword(usuario, request.Senha));
 
         db.Usuarios.Add(usuario);

@@ -12,7 +12,8 @@ public sealed record MaterialResponse(
     int Quantidade,
     StatusMaterial Status,
     string DoadorNome,
-    DateTime CriadoEm);
+    DateTime CriadoEm,
+    bool EhMeu = false);
 
 public sealed record MeuMaterialResponse(
     Guid Id,
